@@ -37,8 +37,8 @@ class TellContacts extends Component {
 }
 
 
-  componentDidUpdate(prevState, prevProps) {
-    if (this.state.telContacts !== prevState) {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.telContacts !== prevState.telContacts) {
         console.log('обновилось');
       localStorage.setItem("telContacts", JSON.stringify(this.state.telContacts))
     }
