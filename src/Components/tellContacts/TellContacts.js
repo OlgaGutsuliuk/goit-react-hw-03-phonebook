@@ -28,6 +28,24 @@ class TellContacts extends Component {
     })
   };
 
+  componentDidMount() {
+    const telContacts = localStorage.getItem("telContacts");
+    const parsedContacts = JSON.parse(telContacts)
+    if (telContacts) {
+     this.setState({telContacts: parsedContacts })
+    }
+}
+
+
+  componentDidUpdate(prevState, prevProps) {
+    if (this.state.telContacts !== prevState) {
+        console.log('обновилось');
+      localStorage.setItem("telContacts", JSON.stringify(this.state.telContacts))
+    }
+  }
+
+  
+
 
 
 deleteTelContact = event => {
